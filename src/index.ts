@@ -1,10 +1,8 @@
-import "dotenv/config"
-import { Client, TextChannel } from "discord.js";
+import "dotenv/config";
+import "./client/Client";
+import { join } from "path";
+import { BaseCommand } from "./commands/baseCommand/BaseCommand";
+import { BaseEvent } from "./events/baseEvent/BaseEvent";
 
-const client = new Client();
-client.login(process.env.BOT_TOKEN);
-
-client.on("ready", async () => {
-    const ch = <TextChannel>client.channels.cache.find((c: TextChannel) => c.name.includes('logs'));
-    console.log(await ch.send('The new bot project works.'));
-});
+BaseCommand.register(join(__dirname, "commands"));
+BaseEvent.register(join(__dirname, "events"));
