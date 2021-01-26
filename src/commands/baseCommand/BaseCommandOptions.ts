@@ -2,11 +2,11 @@ export interface BaseCommandOptions {
     name: string;
     type: string;
     info: string;
-    activator: ActivatorType
+    activator: Activator
     aliases?: string[];
 }
 
-export enum ActivatorType {
+export enum Activator {
     STARTS_WITH,
     EQUAL_TO
 }
