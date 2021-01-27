@@ -10,10 +10,11 @@ export default class Eval extends BaseCommand {
     constructor() {
         super({
             name: "Eval",
-            info: "Owner command to evaluate code in the bot",
+            info: "Owner command to evaluate code in the bot.",
             type: "test",
             activator: Activator.STARTS_WITH,
         })
+	console.log("eval")
     }
 
     public async run(): Promise<Message> {
