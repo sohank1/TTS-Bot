@@ -2,7 +2,7 @@ import { Embed } from "../../client/embeds/Embed";
 import { BaseCommand } from "../baseCommand/BaseCommand";
 import { Activator } from "../baseCommand/BaseCommandOptions";
 
-export default class embed extends BaseCommand {
+export default class EmbedCommand extends BaseCommand {
 
     constructor() {
         super({
