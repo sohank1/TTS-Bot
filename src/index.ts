@@ -31,4 +31,5 @@ client.ws.on("INTERACTION_CREATE", async interaction => {
     });
   }
   });
+  console.log(client.api.interactions(interaction.id, interaction.token))
 })
