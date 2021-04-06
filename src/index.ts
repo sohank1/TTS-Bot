@@ -31,4 +31,4 @@ client.ws.on("INTERACTION_CREATE", async interaction => {
     });
   }
   });
-}
+})
