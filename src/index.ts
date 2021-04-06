@@ -8,8 +8,8 @@ import { BaseEvent } from "./events/baseEvent/BaseEvent";
 BaseCommand.register(join(__dirname, "commands"));
 BaseEvent.register(join(__dirname, "events"));
 
-
-client.api.applications(client.user.id).commands.post({
+client.on("ready", () => {
+  client.api.applications(client.user.id).commands.post({
   data: {
     name: "ping",
     description: "Gets your ping to TTS Bot",
@@ -30,4 +30,5 @@ client.ws.on("INTERACTION_CREATE", async interaction => {
       },
     });
   }
-});
+  });
+}
