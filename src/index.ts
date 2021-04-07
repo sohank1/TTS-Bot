@@ -25,7 +25,7 @@ client.ws.on("INTERACTION_CREATE", async interaction => {
       data: {
       type: 4,
       data: {
-       content: client.ws.ping,
+       content: `Your ping is ${client.ws.ping}ms`,
        "allowed_mentions": { "parse": [] }
        },
       },
