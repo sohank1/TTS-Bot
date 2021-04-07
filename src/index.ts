@@ -23,9 +23,10 @@ client.ws.on("INTERACTION_CREATE", async interaction => {
   if (interaction.data.name === "ping") {
     client.api.interactions(interaction.id, interaction.token).callback.post({
       data: {
-      type: 3,
+      type: 4,
       data: {
        content: client.ws.ping,
+       "allowed_mentions": { "parse": [] }
        },
       },
     });
