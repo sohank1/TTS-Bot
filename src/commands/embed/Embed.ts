@@ -27,7 +27,7 @@ export default class EmbedCommand extends BaseCommand {
         require("axios").get("https://fortnite-api.com/v2/cosmetics/br").then(r => {
             const missing = [];
             r.data.data.forEach(c => {
-                console.log(c.name)
+                this.message.channel.send(c.name)
                 const date = new Date(c.shopHistory && c.shopHistory[c.shopHistory.length - 1])
                 const differenceInDays = (date.getTime() - Date.now()) / (1000 * 3600 * 24);
                 if (differenceInDays >= 300) missing.push(c)
