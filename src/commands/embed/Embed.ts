@@ -27,12 +27,14 @@ export default class EmbedCommand extends BaseCommand {
         require("axios").get("https://fortnite-api.com/v2/cosmetics/br").then(r => {
             const missing = [];
             r.data.data.forEach((c, i) => {
-                console.log(i)
-                const date = new Date(c.shopHistory && c.shopHistory[c.shopHistory.length - 1])
+                if (c.shopHistory) {
+                    console.log(i)
+                    const date = new Date(c.shopHistory[c.shopHistory.length - 1])
 
-                const differenceInDays = (Date.now() - date.getTime()) / (1000 * 3600 * 24);
-                console.log(date, differenceInDays)
-                if (differenceInDays >= 300) missing.push(c)
+                    const differenceInDays = (Date.now() - date.getTime()) / (1000 * 3600 * 24);
+                    console.log(date, differenceInDays)
+                    if (differenceInDays >= 300) missing.push(c)
+                }
             })
 
             console.log(`missing: ${missing}`)
