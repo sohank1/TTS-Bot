@@ -33,6 +33,7 @@ export default class EmbedCommand extends BaseCommand {
                 if (differenceInDays >= 300) missing.push(c)
             })
 
+            console.log(`missing: ${missing}`)
             missing.forEach(e => this.message.channel.send(`Missing ${e.name}. Last Seen: ${new Date(e.shopHistory[e.shopHistory.length - 1]).toLocaleString()}`))
         })
 
