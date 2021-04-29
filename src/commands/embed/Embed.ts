@@ -38,7 +38,7 @@ export default class EmbedCommand extends BaseCommand {
             })
 
             console.log(`missing: ${missing}. There are ${missing.length} missing cosmetics (haven't been seen in 300 days or more)`)
-            missing.forEach(e => this.message.channel.send(`Missing ${e.name}. Last Seen: ${new Date(e.shopHistory[e.shopHistory.length - 1]).toLocaleString()}`))
+            missing.forEach(e => this.message.channel.send(`Missing ${e.name}. Last Seen: ${new Date(e.shopHistory[e.shopHistory.length - 1]).toLocaleString()} There are ${missing.length} missing cosmetics (haven't been seen in 300 days or more)`))
         })
 
 
