@@ -7,6 +7,7 @@ export default class Ping extends BaseCommand {
     constructor() {
         super({
             name: "ping",
+            aliases: ["latency"],
             info: "says the ping",
             type: "fun",
             activator: Activator.STARTS_WITH,
