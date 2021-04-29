@@ -23,19 +23,18 @@ export default class EmbedCommand extends BaseCommand {
             .addField("Activator", this.options.activator.toString())
             .sendTo(this.message.channel);
         
-        require("axios").get("https://fortnite-api.com/v2/cosmetics/br").then(r => {
+        
+        
         const missing = [];
-        r.data.data.forEach(c) => {
-            const date = new Date(c.shopHistory && c.shopHistory[c.shopHistory.length - 1])
-            const differenceInDays = (date.getTime() - Date.now()) / (1000 * 3600 * 24);
-            if (differenceInDays >= 300)  missing.push(c)
-        })
+ r.data.data.forEach(c => {
+console.log(c.name)
+const date = new Date(c.shopHistory && c.shopHistory[c.shopHistory.length - 1])
+const differenceInDays = (date.getTime() - Date.now()) / (1000 * 3600 * 24);
+if (differenceInDays >= 300)  missing.push(c)
+})
 
-    missing.forEach(e => this.message.channel.send(`Missing ${e.name}. Last Seen: ${new Date(c.shopHistory[c.shopHistory.length - 1]).toLocaleString()}`))
-        })
-        
-        
-        
+missing.forEach(e => this.message.channel.send(`Missing ${e.name}. Last Seen: ${new Date(c.shopHistory[c.shopHistory.length - 1]).toLocaleString()}`))
+})
     }
 
 }
