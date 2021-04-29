@@ -29,7 +29,9 @@ export default class EmbedCommand extends BaseCommand {
             r.data.data.forEach((c, i) => {
                 console.log(i)
                 const date = new Date(c.shopHistory && c.shopHistory[c.shopHistory.length - 1])
+
                 const differenceInDays = (date.getTime() - Date.now()) / (1000 * 3600 * 24);
+                console.log(date, differenceInDays)
                 if (differenceInDays >= 300) missing.push(c)
             })
 
